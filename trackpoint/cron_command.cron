@@ -1,0 +1,1 @@
+@reboot /home/leo/.setup/trackpoint/set.sh

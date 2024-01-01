@@ -1,0 +1,64 @@
+# This file is sourced by all *interactive* bash shells on startup,
+# including some apparently interactive shells such as scp and rcp
+# that can't tolerate any output.  So make sure this doesn't display
+# anything or bad things will happen !
+
+
+# Test for an interactive shell.  There is no need to set anything
+# past this point for scp and rcp, and it's important to refrain from
+# outputting anything in those cases.
+if [[ $- != *i* ]] ; then
+	# Shell is non-interactive.  Be done now!
+	return
+fi
+
+# Put your fun stuff here.
+
+# prompt
+PS1="\W > "
+
+# autocomplete with doas
+complete -cf doas
+
+# aliases
+alias l="ls -ahl"
+alias v="vim"
+alias sudo="doas"
+alias bye=exit
+alias h=history
+alias lf='ls -algF'
+alias cls=clear
+alias edit=$EDITOR
+
+# autolaunch xorg
+if [ -z "${DISPLAY}" ] && [[ "$(tty)" = /dev/tty1 ]]; then
+    exec startx
+fi
+
+### Set $PATH, which tells the computer where to search for commands
+export PATH="$PATH:$HOME/.setup/scripts"
+
+### Which pager to use.
+export PAGER=less
+
+### Choose your weapon
+EDITOR=/usr/bin/vim
+export EDITOR
+
+### The maximum number of lines in your history file
+export HISTFILESIZE=50
+
+### Enables displaying colors in the terminal
+#export TERM=xterm-color
+
+### Automatically correct mistyped 'cd' directories
+shopt -s cdspell
+
+### Append to history file; do not overwrite
+shopt -s histappend
+
+### Prevent accidental overwrites when using IO redirection
+set -o noclobber
+
+### Case insensitive Tab
+bind 'set completion-ignore-case on'

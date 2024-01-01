@@ -1,0 +1,66 @@
+# reload
+alt + Escape 
+	pkill -USR1 -x sxhkb
+
+# quit/restart
+super + alt + shift + {q,r}
+	bspc {quit,wm -r}
+
+# kill w
+{super,alt} + {_,shift + }q
+	bspc node -{k,c}
+
+# terminal
+super + {Return,t}
+	st
+
+# firefox
+super + c
+	firefox-bin
+
+# dmenu
+super + @space
+    /home/leo/.setup/scripts/dmenu.sh
+
+# picom
+super + u
+    /home/leo/.setup/scripts/picom_toggle.sh
+
+# vlock
+super + m
+    vlock -an
+
+# sel window
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+# sel desktop
+alt + {h,l}
+	bspc desktop -f {prev,next}.local
+
+# goto desktop
+super + {1-9}
+	bspc desktop -f {1-9}
+
+# move to  desktop
+alt + {1-9}
+	bspc node -d {1-9} --follow
+
+# fullscreen
+alt + Tab
+    bspc node -t ~fullscreen
+
+# cool stuffs
+
+# Rotate tree
+super + shift + {h,l}
+     bspc node @/ -C {forward,backward}     
+
+#Volume Control
+
+XF86AudioLowerVolume
+	amixer set Master 5%-
+XF86AudioRaiseVolume
+	amixer set Master 5%+
+XF86AudioMute
+        amixer set Master toggle
