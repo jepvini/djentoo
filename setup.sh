@@ -52,17 +52,21 @@ ln -s ~/.setup/home/vim/vimrc ~/.vimrc
 unlink ~/.bashrc 2> /dev/null
 ln -s ~/.setup/home/bash/bashrc ~/.bashrc
 
-echo "dmenu"
+
+### fonts
+unlink ~/.local/share/fonts/AcPlus_IBM_VGA_8x16.ttf 2> /dev/null
+ln -s ~/.setup/fonts/AcPlus_IBM_VGA_8x16.ttf ~/.local/share/fonts
+
+
+echo "scripts"
 
 ### SCRIPTS
 chmod +x ~/.setup/scripts/*
 
-# ### ST
-# pushd ~/.setup/st/
-# rm -f config.h
-# doas make clean install
-# popd
-# 
-# ### TRACKPOINT
-# chmod +x ~/.setup/trackpoint/set.sh
-# doas crontab ~/.setup/trackpoint/cron_command.cron
+### important stuffs
+# kernel config
+cp /usr/src/linux/.config ~/.setup/kernel_config
+
+# portage
+cp /etc/portage/make.conf ~/.setup/portage
+cp -r /etc/portage/package.use ~/.setup/portage

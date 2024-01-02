@@ -76,7 +76,6 @@ set hlsearch
 " Set the commands to save in history default number is 20.
 set history=1000
 
-
 " Enable auto completion menu after pressing TAB.
 set wildmenu
 
@@ -87,14 +86,17 @@ set wildmode=list:longest
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
-"
+" Line after comment is not a comment
+set formatoptions-=ro
+
 "
 " MAP 
 
 " jk as <esc> while in insert mode
 inoremap jk <esc>
+nnoremap J <C-d>zz
+nnoremap K <C-u>zz
 
-"
 "
 " STATUS BAR
 
