@@ -1,5 +1,5 @@
 # reload
-alt + Escape 
+alt + Escape
 	pkill -USR1 -x sxhkb
 
 # quit/restart
@@ -20,11 +20,11 @@ super + c
 
 # dmenu
 super + @space
-    /home/leo/.setup/scripts/dmenu.sh
+    ~/.setup/scripts/dmenu.sh
 
 # picom
 super + u
-    /home/leo/.setup/scripts/picom_toggle.sh
+    ~/.setup/scripts/picom_toggle.sh
 
 # vlock
 super + m
@@ -54,7 +54,7 @@ alt + Tab
 
 # Rotate tree
 super + shift + {h,l}
-     bspc node @/ -C {forward,backward}     
+     bspc node @/ -C {forward,backward}
 
 #Volume Control
 

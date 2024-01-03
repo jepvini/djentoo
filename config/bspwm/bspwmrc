@@ -5,19 +5,19 @@ sxhkd &
 INTERNAL_MONITOR="LVDS-1"
 EXTERNAL_MONITOR="VGA1"
 
-xrandr --output $INTERNAL_MONITOR --primary --mode 1024x768 --pos 0x0 --rotate normal 
+xrandr --output $INTERNAL_MONITOR --primary --mode 1024x768 --pos 0x0 --rotate normal
 
 # dual monitor
 
 if [[ $(xrandr -q | grep "${EXTERNAL_MONITOR} connected") ]]; then
 
-    xrandr --output $EXTERNAL_MONITOR --mode 1920x1080 --left-of LVDS1 --rotate normal 
+  xrandr --output $EXTERNAL_MONITOR --mode 1920x1080 --left-of LVDS1 --rotate normal
 
-    bspc monitor "$EXTERNAL_MONITOR" -d 6 7 8 9 10
-    bspc monitor "$INTERNAL_MONITOR" -d 1 2 3 4 5
-    bspc wm -O "$EXTERNAL_MONITOR" "$INTERNAL_MONITOR"
+  bspc monitor "$EXTERNAL_MONITOR" -d 6 7 8 9 10
+  bspc monitor "$INTERNAL_MONITOR" -d 1 2 3 4 5
+  bspc wm -O "$EXTERNAL_MONITOR" "$INTERNAL_MONITOR"
 
-    polybar vga &
+  polybar vga &
 else bspc monitor "$INTERNAL_MONITOR" -d 1 2 3 4 5 6 7 8 9
 fi
 
@@ -38,4 +38,4 @@ bspc config normal_border_color     "#222222"
 polybar main &
 picom &
 setxkbmap gb &
-feh --bg-center /home/leo/.setup/walls/wall.png
+feh --bg-center ~/.setup/walls/wall.png

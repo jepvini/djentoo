@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if pgrep -x picom 
+if pgrep -x picom
 then
-    pkill picom
+  pkill picom
 else
-    picom &> /dev/null &
+  picom &> /dev/null &
 fi
